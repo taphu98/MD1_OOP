@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<title>Title</title>
+<body>
+<input type="text" id="celcius">
+<button onclick="temperature()">Result</button>
+<p id="doF">Độ F</p>
+<p id="doK">Độ K</p>
+</body>
+<script>
+    class Temperature {
+        celcius;
+
+        constructor(celcius) {
+            this.celcius = celcius;
+        }
+
+        getFaraday() {
+            if (this.celcius < -273) {
+                return -500;
+            } else {
+                return this.celcius * 9 / 5 + 32;
+            }
+
+        }
+
+        getKelvin() {
+            if (this.celcius < -273) {
+                return -5;
+            } else {
+                return this.celcius + 273.15;
+            }
+
+        }
+    }
+
+    function temperature() {
+        let celcius = +document.getElementById('celcius').value;
+        let celciusChange = new Temperature(celcius);
+        let F = celciusChange.getFaraday();
+
+        let K = celciusChange.getKelvin();
+        if (F == -500 || K == -5) {
+            document.getElementById('doF').innerText = "Không Có Dữ Liệu"
+
+        } else {
+            document.getElementById('doF').innerText = 'Độ F là: ' + F
+            document.getElementById('doK').innerText = 'Độ K là: ' + K
+        }
+
+    }
+</script>
+
+</body>
+</html>

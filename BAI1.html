@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table style="width: 80%; height: 300px" border="5">
+    <tr>
+        <td>Nhập vào chiều rộng:</td>
+        <td><input id="CRong"></td>
+    </tr>
+
+    <tr>
+        <td>Nhập vào chiều dài:</td>
+        <td><input id="CDai"></td>
+    </tr>
+
+    <tr>
+        <td>Perimeter of Rectangle</td>
+        <td id="chuV"></td>
+    </tr>
+
+    <tr>
+        <td>Area of Rectangle</td>
+        <td id="dienT"></td>
+    </tr>
+
+    <tr>
+        <td>
+            <button onclick="Show()">Show Result</button>
+        </td>
+        <td>
+            <button onclick="Load()">Reset</button>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <canvas id="myCanvas" width="600" height="200" style="border: 3px solid blue"></canvas>
+
+        </td>
+    </tr>
+
+
+</table>
+
+<script>
+    class HinhChuNhat {
+        constructor(CD, CR) {
+            this.CD = CD;
+            this.CR = CR;
+        }
+
+        KetQua() {
+            let canvas = document.getElementById("myCanvas");
+            let ctx = canvas.getContext("2d");
+            ctx.fillRect(50, 50, this.CD, this.CR);
+            ctx.fillStyle = "#CC33FF";
+        }
+
+        dientich() {
+            return this.CD * this.CR;
+        }
+
+        chuvi() {
+            return 2 * (this.CD + this.CR);
+
+        }
+
+        showDientich() {
+            document.getElementById("dienT").innerHTML = this.dientich()
+
+        }
+
+        showChuvi() {
+            document.getElementById("chuV").innerHTML = this.chuvi()
+        }
+
+        reset() {
+            let canvas = document.getElementById('myCanvas');
+            let context = canvas.getContext('2d');
+            context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+            context.beginPath();
+        }
+    }
+
+    function Show() {
+
+        let hinhChuNhat = new HinhChuNhat(+document.getElementById("CDai").value, +document.getElementById("CRong").value);
+        hinhChuNhat.KetQua()
+        let showS = new HinhChuNhat(+document.getElementById("CDai").value, +document.getElementById("CRong").value);
+        showS.showDientich()
+        let showP = new HinhChuNhat(+document.getElementById("CDai").value, +document.getElementById("CRong").value);
+        showP.showChuvi()
+    }
+
+    function Load() {
+        let reload = new HinhChuNhat(+document.getElementById("CDai").value, +document.getElementById("CRong").value);
+        reload.reset()
+    }
+</script>
+
+
+</body>
+</html>
