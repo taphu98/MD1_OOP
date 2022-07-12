@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="arcexmaple"
+        width="600" height="110"
+        style="background: whitesmoke;">
+
+</canvas>
+
+<script>
+    class Apple{
+        constructor(weight) {
+            this.weight = weight;
+        }
+        getWeight(){
+            return this.weight;
+        }
+        setWeight(weight){
+            this.weight = weight ;
+        }
+        decrease(){
+            this.weight--
+        }
+        isEmpty(){
+            if(this.weight > 0){
+                return true
+            }else
+                return false
+        }
+
+    }
+    class Human{
+        constructor(name,gender,weight) {
+            this.name = name;
+            this.gender = gender;
+            this.weight = weight;
+        }
+        getName(){
+            return this.name;
+        }
+        setName(name){
+            this.name = name;
+        }
+        getGender(){
+            return this.gender;q
+        }
+        setGender(gender){
+            this.gender = gender;
+        }
+        getWeight(){
+            return this.weight;
+        }
+        setWeight(weight){
+            this.weight = weight;
+        }
+        say(){
+            return (' ten my la : '+ this.name +' gioi tinh : '  + this.gender)
+        }
+
+        eat(apple){
+            if(apple.isEmpty()){
+                this.setWeight(this.getWeight() +1) ;
+                apple.decrease()
+            }
+
+        }
+        checkApple(apple){
+
+            return apple.isEmpty()
+
+        }
+    }
+    let apple1 = new Apple(5)
+    let adam = new Human('adam',true,50)
+    let eva = new Human('eva',false,40)
+
+</script>
+</body>
+</html>
