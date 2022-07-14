@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<canvas></canvas>
+
+<script src="Game.js"></script>
+<script>
+  const canvas = document.querySelector('canvas');
+  const c = canvas.getContext('2d');
+
+
+  canvas.width = 500;
+  canvas.height = 500;
+  canvas.style.border = '3px solid black';
+
+
+  const game = new Game();
+
+  a = game.board;
+
+  game.init();
+
+
+
+  window.addEventListener('mouseup', (event) => {
+
+    game.add(parseInt((event.clientX - 10) / 25), parseInt((event.clientY - 10) / 25));
+    game.check();
+    console.log(game.board);
+  })
+
+
+</script>
+
+</body>
+</html>

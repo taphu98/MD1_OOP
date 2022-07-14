@@ -6,5 +6,75 @@
 </head>
 <body>
 
+<script>
+
+    class SwitchButton {
+        status;
+        lamp;
+
+        constructor() {
+            this.status = false;
+        }
+
+        connectToLamp(ElectricLamp) {
+            this.lamp = ElectricLamp;
+        }
+
+        switchOff() {
+            this.status = false;
+            this.lamp.turnOff();
+        }
+
+        switchOn() {
+            this.status = true;
+            this.lamp.turnOn();
+
+        }
+    }
+
+    class ElectricLamp {
+        status;
+
+        constructor() {
+            this.status = false;
+        }
+
+        turnOff() {
+            this.status = false;
+        }
+
+        turnOn() {
+            this.status = true;
+        }
+    }
+
+    let sb = new SwitchButton();
+    let el = new ElectricLamp();
+
+    sb.connectToLamp(el);
+
+    sb.switchOn()
+    console.log(el.status)
+    sb.switchOff()
+    console.log(el.status)
+    sb.switchOn()
+    console.log(el.status)
+    sb.switchOff()
+    console.log(el.status)
+    sb.switchOn()
+    console.log(el.status)
+    sb.switchOff()
+    console.log(el.status)
+    sb.switchOn()
+    console.log(el.status)
+    sb.switchOff()
+    console.log(el.status)
+    sb.switchOn()
+    console.log(el.status)
+    sb.switchOff()
+    console.log(el.status)
+
+</script>
+
 </body>
 </html>
